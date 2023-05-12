@@ -1,3 +1,10 @@
-def prefiltrageMethod(cursor):
-    cursor.execute("UPDATE pfe_app_user SET if_transmit=1 WHERE date(date_of_contamination) >= date('now', '-6 days');")
-    
+from datetime import timedelta
+from django.utils import timezone
+
+from pfe_app.models import User
+
+
+def prefiltrageMethod():
+    six_days_ago = timezone.now() - timedelta(days=6)
+    User.objects.filter(date_of_contamination__date__gte=six_days_ago.date()).update(if_transmit=1)
+

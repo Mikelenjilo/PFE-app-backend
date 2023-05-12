@@ -1,2 +1,8 @@
-def removeUsers(cursor):
-    cursor.execute('DELETE FROM pfe_app_user;')
+from pfe_app.models import User
+
+def removeUsers():
+    User.objects.all().delete()
+
+    
+    
+

@@ -2,13 +2,15 @@ import numpy as np
 from sklearn.cluster import KMeans
 import matplotlib.pyplot as plt
 
+from pfe_app.models import User
 
-def elbow_method(cursor):
-    cursor.execute('SELECT latitude, longitude FROM pfe_app_user')
-    data = np.array(cursor.fetchall())
+# TODO: fix the error: TypeErro: unsupported operand type(s) for +: 'dict' and 'dict'
+def elbow_method():
+    data = User.objects.values('latitude', 'longitude')
+    data_aray = np.array(data)
 
     # normalize the data
-    data = (data - np.mean(data, axis=0)) / np.std(data, axis=0)
+    data = (data_aray - np.mean(data_aray, axis=0)) / np.std(data_aray, axis=0)
 
     # determine the optimal number of clusters using the elbow method
     distortions = []

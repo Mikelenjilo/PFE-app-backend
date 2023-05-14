@@ -1,9 +1,9 @@
 import 'package:dartz/dartz.dart';
-import 'package:projet_de_fin_d_etude/core/entities/user.dart';
 import 'package:projet_de_fin_d_etude/core/errors/exceptions.dart';
 import 'package:projet_de_fin_d_etude/core/errors/failure.dart';
-import 'package:projet_de_fin_d_etude/core/models/user_model.dart';
+import 'package:projet_de_fin_d_etude/features/auth/data/models/user_model.dart';
 import 'package:projet_de_fin_d_etude/features/auth/data/datasources/auth_local_data_source.dart';
+import 'package:projet_de_fin_d_etude/features/auth/domain/entities/user.dart';
 import 'package:projet_de_fin_d_etude/features/auth/domain/repositories/auth_repository.dart';
 
 class AuthRepositoryImpl implements AuthRepository {

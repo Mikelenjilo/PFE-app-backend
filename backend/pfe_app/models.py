@@ -15,12 +15,13 @@ class User(models.Model):
     cronic_disease_4 = models.CharField(max_length=50, null=True)
     cronic_disease_5 = models.CharField(max_length=50, null=True)
     gender = models.CharField(max_length=50)
-    latitude = models.FloatField()
-    longitude = models.FloatField()
+    latitude = models.FloatField(null=True)
+    longitude = models.FloatField(null=True)
     cluster_id = models.ForeignKey('Cluster', on_delete=models.CASCADE)
-    if_transmit = models.BooleanField()
+    if_transmit = models.BooleanField(null=True)
     date_of_contamination = models.DateField(null=True)
     recommandation = models.FloatField(null=True)
+    online = models.BooleanField(null=True)
 
     class Meta:
         constraints = [

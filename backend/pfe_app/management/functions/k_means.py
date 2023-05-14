@@ -90,7 +90,6 @@ def create_clusters(kmeans, numberOfClusters):
 def assign_cluster(kmeans, numberOfClusters):
     labels = kmeans.labels_
     users = User.objects.all()
-    print(users.__len__())
     for i, user in enumerate(User.objects.all()):
         user_cluster_id = Cluster.objects.get(cluster_id=0)
         for j in range(numberOfClusters):

@@ -6,11 +6,12 @@ from pfe_app.models import User
 
 # TODO: fix the error: TypeErro: unsupported operand type(s) for +: 'dict' and 'dict'
 def elbow_method():
-    data = User.objects.values('latitude', 'longitude')
-    data_aray = np.array(data)
+    queryset = User.objects.values('latitude', 'longitude')
+    data_list = list(queryset)
+    data_array = np.array([[d['latitude'], d['longitude']] for d in data_list])
 
     # normalize the data
-    data = (data_aray - np.mean(data_aray, axis=0)) / np.std(data_aray, axis=0)
+    data = (data_array - np.mean(data_array, axis=0)) / np.std(data_array, axis=0)
 
     # determine the optimal number of clusters using the elbow method
     distortions = []

@@ -42,11 +42,11 @@ def avg_cronic_factors(user_id):
 def factor_disease(disease): 
     if disease == 'maladies respiratoires':
         return 0.9
-    elif disease == 'maladies cardiaques':
-        return 0.8
-    elif disease == 'cancer':
-        return 0.7
     elif disease == 'diabète':
+        return 0.8
+    elif disease == 'maladies cardiaques':
+        return 0.7
+    elif disease == 'cancer':
         return 0.6
     elif disease == 'maladies rénales':
         return 0.4

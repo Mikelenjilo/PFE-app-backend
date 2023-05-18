@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:projet_de_fin_d_etude/core/entities/user.dart';
-import 'package:projet_de_fin_d_etude/core/services/sql_helper.dart';
 
 void main() {
   runApp(const EpidemicZone());

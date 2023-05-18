@@ -1,35 +1,33 @@
-import 'package:projet_de_fin_d_etude/core/entities/user.dart';
-import 'package:projet_de_fin_d_etude/core/errors/exceptions.dart';
-import 'package:projet_de_fin_d_etude/features/auth/data/models/user_model.dart';
-import 'package:projet_de_fin_d_etude/core/services/sql_helper.dart';
+import 'package:projet_de_fin_d_etude/features/auth/domain/entities/user.dart';
+import 'package:dio/dio.dart';
 
 abstract class AuthLocalDataSource {
   Future<void> registerInWithEmailAndPassword(String email, String password);
   Future<void> signInWithEmailAndPassword(String email, String password);
   void signOut(User user);
-  Future<bool> isSignedIn(String email);
-  Future<bool> isEmailExists(String email);
-  Future<UserModel> getUserByEmail(String email);
 }
 
 class AuthLocalDataSourceImpl implements AuthLocalDataSource {
-  @override
-  Future<bool> isSignedIn(String email) async {}
-
+  final dio = Dio();
   @override
   Future<void> registerInWithEmailAndPassword(
-      String email, String password) async {}
+      String email, String password) async {
+    final response = await dio.get('http://192.168.1.42:8000/users');
+    print(response);
+  }
 
   @override
-  Future<void> signInWithEmailAndPassword(
-      String email, String password) async {}
+  Future<void> signInWithEmailAndPassword(String email, String password) {
+    // TODO: implement signInWithEmailAndPassword
+    throw UnimplementedError();
+  }
 
   @override
-  void signOut(User user) {}
+  void signOut(User user) {
+    // TODO: implement signOut
+  }
+}
 
-  @override
-  Future<UserModel> getUserByEmail(String email) async {}
-
-  @override
-  Future<bool> isEmailExists(String email) async {}
+void main() {
+  AuthLocalDataSourceImpl().registerInWithEmailAndPassword('email', 'password');
 }

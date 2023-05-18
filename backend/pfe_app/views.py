@@ -3,7 +3,6 @@ from django.http import HttpResponse
 from rest_framework import viewsets
 from rest_framework.decorators import action, api_view
 from rest_framework.response import Response
-from rest_framework.views import APIView
 from rest_framework import status
 
 from .models import User, Cluster
